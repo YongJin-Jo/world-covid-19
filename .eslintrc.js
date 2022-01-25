@@ -9,7 +9,11 @@ module.exports = {
     'plugin:@typescript-eslint/eslint-recommended',
     'plugin:@typescript-eslint/recommended',
   ],
-  plugins: ['prettier', '@typescript-eslint'],
+  plugins: [
+    'prettier',
+    '@typescript-eslint',
+    'typescript-plugin-styled-components',
+  ],
   rules: {
     'prettier/prettier': [
       'error',
