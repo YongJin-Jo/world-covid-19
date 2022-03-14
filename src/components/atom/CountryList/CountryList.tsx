@@ -1,11 +1,27 @@
 import React from 'react';
 import styled from 'styled-components';
+import { CountryDefine } from '../../../type/country';
 
-export const CountryLIst = () => {
-  return <Container>나라</Container>;
+const Wrapper = styled.div`
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 15px 10px;
+  margin: 5px;
+  border-radius: 10px;
+  background-color: ${props => props.theme.purple.light};
+  font-weight: bold;
+  color: white;
+`;
+
+export const CountryLIst = ({ conturey }: IPorps) => {
+  const onClick = () => {
+    console.log(conturey.Country);
+  };
+  return <Wrapper onClick={onClick}>{conturey.Country}</Wrapper>;
 };
 
-const Container = styled.div`
-  display: flex;
-  flex-direction: column;
-`;
+interface IPorps {
+  conturey: CountryDefine;
+}

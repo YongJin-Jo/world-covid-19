@@ -1,8 +1,9 @@
-import React, { Dispatch, useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import { fetchContury } from '../../../api/countries/conutries';
 import { CountrySideBar } from '../../moduler/sidebar/CountrySideBar';
 import { StatusBoard } from '../../moduler/statusboard/StatusBoard';
+import { CountryDefine } from '../../../type/country';
 
 export const CovidMain = () => {
   const [conturyArry, setConturyItem] = useState<CountryDefine[]>();
@@ -11,24 +12,18 @@ export const CovidMain = () => {
   }, []);
   return (
     <Main>
-      <CountrySideBar {...conturyArry} />
+      <CountrySideBar conturyArry={conturyArry} />
       <StatusBoard />
     </Main>
   );
 };
-
-export interface CountryDefine {
-  Country: string;
-  Slug: string;
-  ISO2: string;
-}
 
 async function fetchData(setState: any) {
   try {
     const { data: conturyItem } = await fetchContury<CountryDefine[]>();
     return setState(conturyItem);
   } catch (error) {
-    console.log(error);
+    console.error(error);
   }
 }
 
