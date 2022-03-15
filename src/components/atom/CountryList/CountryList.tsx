@@ -1,6 +1,11 @@
 import React from 'react';
 import styled from 'styled-components';
-import { CountryDefine } from '../../../type/country';
+import { LiveByCountryAllStatus } from '../../../api/countries/conutries';
+import {
+  CountryDefine,
+  CountryListDefine,
+  LiveCountryStatusDefine,
+} from '../../../type/country';
 
 const Wrapper = styled.div`
   cursor: pointer;
@@ -16,11 +21,22 @@ const Wrapper = styled.div`
 `;
 
 export const CountryLIst = ({ conturey }: IPorps) => {
-  const onClick = () => {
-    console.log(conturey.Country);
+  const onClick = (e: React.MouseEvent) => {
+    fetchCountryTotal(e.currentTarget.textContent);
   };
   return <Wrapper onClick={onClick}>{conturey.Country}</Wrapper>;
 };
+
+async function fetchCountryTotal(country: string | null) {
+  try {
+    const { data } = await LiveByCountryAllStatus<LiveCountryStatusDefine[]>(
+      country
+    );
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
 
 interface IPorps {
   conturey: CountryDefine;

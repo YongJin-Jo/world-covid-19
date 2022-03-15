@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { CountryLIst } from '../../atom/CountryList/CountryList';
-import { CountryDefine } from '../../../type/country';
+import { CountryDefine, CountryListDefine } from '../../../type/country';
 
 interface IPorp {
   conturyArry: CountryDefine[] | undefined;
