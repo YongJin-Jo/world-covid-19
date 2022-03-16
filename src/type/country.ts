@@ -27,9 +27,32 @@ interface LiveCountryStatusDefine extends CountryDefault {
   LocationID: string;
 }
 
+interface GlobalType {
+  NewConfirmed: number;
+  NewDeaths: number;
+  NewRecovered: number;
+  TotalConfirmed: number;
+  TotalDeaths: number;
+  TotalRecovered: number;
+}
+
+interface CountriesType extends GlobalType {
+  Country: string;
+  CountryCode: string;
+  Slug: string;
+  Date: string;
+}
+
+interface SummaryDefine {
+  Global?: GlobalType;
+  Countries?: CountriesType[];
+}
+
 export type {
   CountryListDefine,
   CountryDefine,
   CountryStatus,
   LiveCountryStatusDefine,
+  SummaryDefine,
+  GlobalType,
 };

@@ -1,11 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { LiveByCountryAllStatus } from '../../../api/countries/conutries';
-import {
-  CountryDefine,
-  CountryListDefine,
-  LiveCountryStatusDefine,
-} from '../../../type/country';
+import { CountryDefine, LiveCountryStatusDefine } from '../../../type/country';
 
 const Wrapper = styled.div`
   cursor: pointer;
