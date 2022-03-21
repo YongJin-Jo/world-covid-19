@@ -1,8 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
 import { LiveByCountryAllStatus } from '../../../api/countries/conutries';
+import { useAppDispatch } from '../../../store/hooks';
+import { targetCountry } from '../../../store/reduser';
 import { CountryDefine, LiveCountryStatusDefine } from '../../../type/country';
-
 const Wrapper = styled.div`
   cursor: pointer;
   display: flex;
@@ -17,8 +18,11 @@ const Wrapper = styled.div`
 `;
 
 export const CountryLIst = ({ conturey }: IPorps) => {
+  const dispatch = useAppDispatch();
   const onClick = (e: React.MouseEvent) => {
-    fetchCountryTotal(e.currentTarget.textContent);
+    dispatch(() => {
+      targetCountry(e.currentTarget.textContent as string);
+    });
   };
   return <Wrapper onClick={onClick}>{conturey.Country}</Wrapper>;
 };

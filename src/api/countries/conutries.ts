@@ -1,4 +1,5 @@
 import { AxiosResponse } from 'axios';
+import { CountryStatus } from '../../type/country';
 import { conturey } from '../index';
 
 //전세계 통계
@@ -24,9 +25,19 @@ function ByCountryTotalAllStatus<T>(
 ): Promise<AxiosResponse<T>> {
   return conturey.get(`country/${country}`);
 }
+
+// 국가별 하루 통계
+function DayOneAllStatus<T>(
+  country: string | null,
+  status: CountryStatus
+): Promise<AxiosResponse<T>> {
+  return conturey.get(`country/${country}/status/${status}`);
+}
+
 export {
   fetchSummary,
   fetchContury,
   ByCountryTotalAllStatus,
   LiveByCountryAllStatus,
+  DayOneAllStatus,
 };
