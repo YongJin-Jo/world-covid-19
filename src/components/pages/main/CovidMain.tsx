@@ -4,17 +4,20 @@ import { fetchContury, fetchSummary } from '../../../api/countries/conutries';
 import { CountrySideBar } from '../../moduler/sidebar/CountrySideBar';
 import { StatusBoard } from '../../moduler/statusboard/StatusBoard';
 import {
+  CountriesType,
   CountryDefine,
-  GlobalType,
   SummaryDefine,
 } from '../../../type/country';
+import { useDispatch } from 'react-redux';
+import { summeryListUp } from '../../../store/reduser';
 
 export const CovidMain = () => {
-  const [conturyArry, setConturyItem] = useState<CountryDefine[]>();
-  const [currentSummary, setCurrentSummary] = useState<GlobalType>();
+  const dispath = useDispatch();
+  const [conturyArry, setConturyItem] = useState<CountryDefine[]>([]);
+  const [currentSummary, setCurrentSummary] = useState<CountriesType>();
   useEffect(() => {
     fetchData(setConturyItem);
-    fetchSummaryData(setCurrentSummary);
+    fetchSummaryData(setCurrentSummary, dispath);
   }, []);
 
   return (
@@ -34,12 +37,14 @@ async function fetchData(setState: any) {
   }
 }
 
-async function fetchSummaryData(setState: any) {
+async function fetchSummaryData(setState: any, dispath: any) {
   try {
     const {
-      data: { Global: summaryItem },
+      data: { Global: Global, Countries: Countries },
     } = await fetchSummary<SummaryDefine>();
-    return setState(summaryItem);
+    dispath(summeryListUp(Countries as CountriesType[]));
+
+    return setState(Global);
   } catch (error) {
     console.error(error);
   }

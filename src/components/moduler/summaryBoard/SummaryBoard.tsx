@@ -1,31 +1,45 @@
 import React from 'react';
 import styled from 'styled-components';
-import { GlobalType } from '../../../type/country';
+import { CountriesType } from '../../../type/country';
 
 interface IProps {
-  boardData: GlobalType | undefined;
+  summer: CountriesType | undefined;
 }
 
-export const SummaryBoard = ({ boardData }: IProps) => {
-  console.log(boardData);
-
+export const SummaryBoard = ({ summer }: IProps) => {
   return (
     <Wrapper>
       <SummaryCount>
         <h2>전체 확진자 수</h2>
-        <span>{boardData?.TotalConfirmed.toLocaleString()}</span>
+        <span>
+          {summer?.TotalConfirmed
+            ? summer?.TotalConfirmed.toLocaleString()
+            : '정보가 없습니다.'}
+        </span>
       </SummaryCount>
       <SummaryCount>
         <h2>전체 사망자 수</h2>
-        <span>{boardData?.TotalDeaths.toLocaleString()}</span>
+        <span>
+          {summer?.TotalDeaths
+            ? summer?.TotalDeaths.toLocaleString()
+            : '정보가 없습니다.'}
+        </span>
       </SummaryCount>
       <SummaryCount>
         <h2>신규 확지자 수</h2>
-        <span>{boardData?.NewConfirmed.toLocaleString()}</span>
+        <span>
+          {summer?.NewConfirmed
+            ? summer?.NewConfirmed.toLocaleString()
+            : '정보가 없습니다.'}
+        </span>
       </SummaryCount>
       <SummaryCount>
         <h2>신규 사망자 수</h2>
-        <span>{boardData?.NewDeaths.toLocaleString()}</span>
+        <span>
+          {summer?.NewDeaths
+            ? summer?.NewDeaths.toLocaleString()
+            : '정보가 없습니다.'}
+        </span>
       </SummaryCount>
     </Wrapper>
   );
