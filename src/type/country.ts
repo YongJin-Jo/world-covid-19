@@ -45,6 +45,22 @@ interface SummaryDefine {
   Countries?: CountriesType[];
 }
 
+interface oneCountry {
+  City: string;
+  CityCode: string;
+  Country: string;
+  CountryCode: string;
+  Date: string;
+  Confirmed: number;
+  Deaths: string;
+  Recovered: string;
+  Active: number;
+  ID: string;
+  Lat: string;
+  Lon: string;
+  Province: string;
+}
+
 export type {
   CountryListDefine,
   CountryDefine,
@@ -52,4 +68,5 @@ export type {
   LiveCountryStatusDefine,
   SummaryDefine,
   CountriesType,
+  oneCountry,
 };

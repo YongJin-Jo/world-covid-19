@@ -27,11 +27,8 @@ function ByCountryTotalAllStatus<T>(
 }
 
 // 국가별 하루 통계
-function DayOneAllStatus<T>(
-  country: string | null,
-  status: CountryStatus
-): Promise<AxiosResponse<T>> {
-  return conturey.get(`country/${country}/status/${status}`);
+function DayOneAllStatus<T>(country: string | null): Promise<AxiosResponse<T>> {
+  return conturey.get(`dayone/country/${country}`);
 }
 
 export {
