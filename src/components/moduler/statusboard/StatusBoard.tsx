@@ -60,5 +60,7 @@ async function fetchCountryTotal(country: string | null, setState: any) {
 }
 
 const Wrapper = styled.div`
+  display: flex;
+  flex-direction: column;
   width: 100%;
 `;
