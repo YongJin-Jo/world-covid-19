@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/world-covid-19/static/css/main.4963aca4.css",
+    "main.js": "/world-covid-19/static/js/main.5d949dcb.js",
+    "index.html": "/world-covid-19/index.html",
+    "main.4963aca4.css.map": "/world-covid-19/static/css/main.4963aca4.css.map",
+    "main.5d949dcb.js.map": "/world-covid-19/static/js/main.5d949dcb.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.4963aca4.css",
+    "static/js/main.5d949dcb.js"
+  ]
+}
