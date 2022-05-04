@@ -26,7 +26,7 @@ export const SummaryBoard = ({ summer }: IProps) => {
         </span>
       </SummaryCount>
       <SummaryCount>
-        <h2>신규 확지자 수</h2>
+        <h2>신규 확진자 수</h2>
         <span>
           {summer?.NewConfirmed
             ? summer?.NewConfirmed.toLocaleString()
